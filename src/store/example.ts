@@ -1,11 +1,10 @@
 import { defineStore } from 'pinia'
 
-export const userStore = defineStore('userData', {
+export const userStore = defineStore('userInfo', {
 	state: () => {
 		return {
-			userID: null,
-			userName: '',
-			userInfo: {},
+			userID: '10001',
+			userName: '某同学',
 		}
 	},
 	getters: {
@@ -14,10 +13,8 @@ export const userStore = defineStore('userData', {
 		},
 	},
 	actions: {
-		updateUserInfo(info: any) {
-			this.userInfo = info.userInfo
-			this.userID = info.userInfo.accountId
-			this.userName = info.userInfo.name
+		updateUserName(name: string) {
+			this.userName = name
 		},
 	},
 	// 开启数据缓存
@@ -25,7 +22,7 @@ export const userStore = defineStore('userData', {
 		enabled: true,
 		strategies: [
 			{
-				key: 'userData',
+				key: 'my_project',
 				storage: localStorage,
 			},
 		],

@@ -6,9 +6,9 @@
 			</div>
 		</el-col>
 		<el-col :span="12">
-			<div class="text-right" style="height: 32px; padding: 14px 10px; line-height: 32px">
-				<el-avatar :size="32" :icon="UserFilled" />
-				{{ userName }}
+			<div class="text-right" style="height: 28px; padding: 16px 10px; line-height: 28px">
+				<el-avatar style="vertical-align: middle;" :size="28" :icon="UserFilled" />
+				<span style="margin-left: 5px;">{{ store.userName }}</span>
 			</div>
 		</el-col>
 	</el-row>
@@ -16,8 +16,9 @@
 
 <script setup lang="ts">
 import { UserFilled } from '@element-plus/icons-vue'
+import { userStore } from '@/store/user'
 
-let userName = 'Zht'
+const store = userStore()
 </script>
 
 <style></style>

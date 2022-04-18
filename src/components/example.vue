@@ -13,7 +13,7 @@ export default {
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { userStore } from '@/store/user'
+import { userStore } from '@/store/example'
 import { apiGetUserInfo } from '@/apis/user'
 
 const count = ref(1)

@@ -9,6 +9,7 @@ interface LoginParams {
     'isRemember': string
 }
 
+// 发送登录请求
 export function apiLogin(params: LoginParams) {
     return httpRequest({
         url: '//testplatform.gamebean.net/v4/bbsBase/login.htm',
