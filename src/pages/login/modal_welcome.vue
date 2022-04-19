@@ -25,25 +25,20 @@ interface PropsParam {
 	userAvatar: string
 	nowDate: string
 	userName: string
-	isShowDialog: boolean
-
+	isOpenDialog: boolean
 }
 // 定义父组件传递过来的数据
 const props = defineProps<PropsParam>()
 // 定义要触发的父组件的方法
 const emit = defineEmits(['onConfirm'])
 // 必须是响应式数据
-const isOpenDialog = ref(false)
+const isOpenDialog = ref(props.isOpenDialog)
 
 function onEnter() {
     emit('onConfirm', '我是子组件发出的数据')
 }
 
-onMounted(() => {
-	isOpenDialog.value = props.isShowDialog
-})
-
-watch(() => props.isShowDialog, (nowVal) => {
+watch(() => props.isOpenDialog, (nowVal) => {
 	isOpenDialog.value = nowVal
 })
 </script>
