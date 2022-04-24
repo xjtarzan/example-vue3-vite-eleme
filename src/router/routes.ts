@@ -13,6 +13,7 @@ const routes = [
 				name: 'home',
 				meta: {
 					title: '首页',
+					keepAlive: true,
 				},
 				component: () => import('@/pages/home/index.vue'), //.vue不能省略
 			},

@@ -9,7 +9,11 @@
 					<left-menu></left-menu>
 				</el-aside>
 				<el-main>
-					<router-view></router-view>
+					<router-view v-slot="{ Component }">
+						<keep-alive :include="['home']">
+							<component :is="Component" />
+						</keep-alive>
+					</router-view>
 				</el-main>
 			</el-container>
 		</el-container>
@@ -19,7 +23,6 @@
 <script setup lang="ts">
 import leftMenu from '@/components/left_menu.vue'
 import topNav from '@/components/top_nav.vue'
-
 </script>
 
 <style>
