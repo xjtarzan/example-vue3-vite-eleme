@@ -18,5 +18,13 @@ router.beforeEach((to, from, next) => {
     next()
 })
 
+// 全局后置钩子，这里可以加入改变页面标题等操作
+router.afterEach((to, from) => {
+    const _title: any = to.meta.title
+    if (_title) {
+        window.document.title = _title
+    }
+})
+
 // 导出默认值
 export default router

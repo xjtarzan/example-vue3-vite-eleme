@@ -4,8 +4,10 @@
 			<el-col :span="24">
 				<div class="text-center">
 					<el-avatar :size="50" :src="props.userAvatar" />
-					<p style="margin-top: 10px;"><strong>{{ props.userName }}</strong> 欢迎您！</p>
-					<p style="margin-top: 10px;">今天是：{{ props.nowDate }}</p>
+					<p style="margin-top: 10px">
+						<strong>{{ props.userName }}</strong> 欢迎您！
+					</p>
+					<p style="margin-top: 10px">今天是：{{ props.nowDate }}</p>
 				</div>
 			</el-col>
 		</el-row>
@@ -33,13 +35,27 @@ const props = defineProps<PropsParam>()
 const emit = defineEmits(['onConfirm'])
 // 必须是响应式数据
 const isOpenDialog = ref(props.isOpenDialog)
-
+// 确定操作
 function onEnter() {
-    emit('onConfirm', '我是子组件发出的数据')
+	emit('onConfirm', '我是子组件发出的数据')
+}
+// 显示弹层
+function onOpen() {
+	isOpenDialog.value = true
+}
+// 关闭弹层
+function onClose() {
+	isOpenDialog.value = false
 }
 
-watch(() => props.isOpenDialog, (nowVal) => {
-	isOpenDialog.value = nowVal
+// watch(() => props.isOpenDialog, (nowVal) => {
+// 	isOpenDialog.value = nowVal
+// })
+
+// 暴露子组件的数据
+defineExpose({
+	onClose,
+	onOpen,
 })
 </script>
 

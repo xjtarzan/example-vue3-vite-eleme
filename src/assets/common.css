@@ -14,3 +14,9 @@ body,html {
 .text-center {
     text-align: center;
 }
+.el-table .cell {
+    color: #333;
+}
+.el-range-editor.el-input__inner {
+    box-sizing: border-box;
+}

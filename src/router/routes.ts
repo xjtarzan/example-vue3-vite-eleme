@@ -2,13 +2,18 @@ const routes = [
 	{
 		path: '/',
 		name: 'index',
-		title: '首页',
+		meta: {
+			title: '用户登录',
+		},
 		redirect: '/login',
 		component: () => import('@/components/basic_frame.vue'), //.vue不能省略
 		children: [
 			{
 				path: '/home',
 				name: 'home',
+				meta: {
+					title: '首页',
+				},
 				component: () => import('@/pages/home/index.vue'), //.vue不能省略
 			},
 			{
@@ -21,7 +26,9 @@ const routes = [
 	{
 		path: '/login',
 		name: 'login',
-		title: '用户登录',
+		meta: {
+			title: '用户登录',
+		},
 		component: () => import('@/pages/login/index.vue'), //.vue不能省略
 	},
 ]

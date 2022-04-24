@@ -8,7 +8,7 @@ const service = axios.create({
 	headers: {
 		// 设置后端需要的传参类型
 		'Content-Type': 'application/json',
-		token: '2316bebb061a6255475697968b52aa8590185154',
+		token: '22148cf58c1244984d7ea83824e50fbc266b2952',
 		'X-Requested-With': 'XMLHttpRequest',
 	},
 })
