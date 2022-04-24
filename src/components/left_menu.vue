@@ -1,15 +1,15 @@
 <template>
 	<el-menu :default-active="activeMenu" :unique-opened="true" style="border: none;">
-		<el-sub-menu index="1">
+		<el-sub-menu index="platformLog">
 			<template #title>
 				<el-icon><platform /></el-icon>
 				<span>平台日志</span>
 			</template>
-			<el-menu-item index="1-1" @click="(e) => onActiveMenu(e, 'home')">
+			<el-menu-item index="home" @click="onActiveMenu">
 				<el-icon><video-play /></el-icon>
 				<span>启动日志</span>
 			</el-menu-item>
-			<el-menu-item index="1-2" @click="(e) => onActiveMenu(e, 'example')">
+			<el-menu-item index="example" @click="onActiveMenu">
 				<el-icon><histogram /></el-icon>
 				<span>心跳数据</span>
 			</el-menu-item>
@@ -36,21 +36,24 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { ref, onMounted } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 import { Platform, VideoPlay, Histogram, ShoppingCart, List } from "@element-plus/icons-vue"
 
 const router = useRouter()
-let activeMenu = ref('1-1')
+const route = useRoute()
+let activeMenu = ref<any>('')
 
-function onActiveMenu(event: any, name: string) {
-    console.log(name)
-    console.log(event)
-    activeMenu = event.index
+function onActiveMenu(e: any) {
+    activeMenu.value = e.index
     router.push({
-        name: name
+        name: e.index
     })
 }
+
+onMounted(() => {
+	activeMenu.value = route.name ? route.name : 'home'
+})
 </script>
 
 <style></style>

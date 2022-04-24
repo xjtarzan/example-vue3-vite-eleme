@@ -13,13 +13,15 @@ const routes = [
 				name: 'home',
 				meta: {
 					title: '首页',
-					keepAlive: true,
 				},
 				component: () => import('@/pages/home/index.vue'), //.vue不能省略
 			},
 			{
 				path: '/example',
 				name: 'example',
+				meta: {
+					title: '样例',
+				},
 				component: () => import('@/components/example.vue'), //.vue不能省略
 			},
 		],

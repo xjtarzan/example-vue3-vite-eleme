@@ -33,7 +33,7 @@ import { useRouter } from 'vue-router'
 import { userStore } from '@/store/user'
 import { apiLogin } from '@/apis/login'
 import dayjs from 'dayjs'
-import { getCookie, setCookie } from 'typescript-cookie'
+import { setCookie } from 'typescript-cookie'
 // 导入子组件
 import tUserWelcome from './modal_welcome.vue'
 

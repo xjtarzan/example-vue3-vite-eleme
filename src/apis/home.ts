@@ -1,6 +1,6 @@
 // 导入axios实例
 import httpRequest from '@/request/index'
-import { getCookie, setCookie } from 'typescript-cookie'
+import { getCookie } from 'typescript-cookie'
 
 const header: any = {
 	token: getCookie('token'),

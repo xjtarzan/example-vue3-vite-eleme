@@ -10,7 +10,7 @@
 				</el-aside>
 				<el-main>
 					<router-view v-slot="{ Component }">
-						<keep-alive :include="['home']">
+						<keep-alive :include="['home', 'example']">
 							<component :is="Component" />
 						</keep-alive>
 					</router-view>

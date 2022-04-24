@@ -9,14 +9,14 @@
 
 <script lang="ts">
 export default {
-	name: 'Example_Component',
+	name: 'example',
 }
 </script>
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { userStore } from '@/store/example'
-import { apiGetUserInfo } from '@/apis/user'
+import { apiGetUserProductList } from '@/apis/user'
 
 const count = ref(1)
 const store = userStore()
@@ -28,20 +28,22 @@ const onChangeName = (name?: any) => {
 function getUserProduct() {
 	const param = {
 		currentPage: 1,
-		pageSize: 20,
+		pageSize: 10,
 		productName: '',
 		productId: '',
 		localeIds: '',
 		status: 1,
 		orderName: 'createTime',
 	}
-	apiGetUserInfo(param).then((res) => {})
+	apiGetUserProductList(param).then((res) => {
+		console.log(res.data)
+	})
 }
 
 onMounted(() => {
 	onChangeName('张同学')
 	getUserProduct()
-	console.log(import.meta.env.MODE)
+	// console.log(import.meta.env.MODE)
 })
 </script>
 
