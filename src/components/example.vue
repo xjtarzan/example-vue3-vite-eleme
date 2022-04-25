@@ -1,10 +1,8 @@
 <template>
-	<div>
-		{{ count.toFixed(2) }} - {{ store.fullName }}
-		<p>
-			<el-button type="primary" @click="onChangeName()">改变Store里的名字</el-button>
-		</p>
-	</div>
+	{{ count.toFixed(2) }} - {{ store.fullName }}
+	<p>
+		<el-button type="primary" @click="onChangeName()">改变Store里的名字</el-button>
+	</p>
 </template>
 
 <script lang="ts">
