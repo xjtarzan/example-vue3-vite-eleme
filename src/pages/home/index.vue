@@ -29,7 +29,7 @@
 	</el-card>
 
 	<el-card style="margin-top: 10px" shadow="never" :body-style="{ padding: '10px' }">
-		<el-table style="width: 100%" size="small" height="500" :data="tableData" v-loading="tableLoading">
+		<el-table style="width: 100%" size="small" :max-height="tableHeight" :data="tableData" v-loading="tableLoading">
 			<el-table-column prop="platformDesc" label="设备" width="300" />
 			<el-table-column prop="nowtime" label="时间" width="170" show-overflow-tooltip />
 			<el-table-column prop="businessId" label="业务" width="180" show-overflow-tooltip />
@@ -113,6 +113,8 @@ const operationLineList = ref<any>([])
 const devicePlatformList = ref({ '0': 'Android', '1': 'IOS', '6': 'H5' })
 // 表格数据
 const tableData = ref<any>([])
+// 表格高度
+const tableHeight = document.documentElement.clientHeight - 186
 // loading状态
 const tableLoading = ref(false)
 
