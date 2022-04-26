@@ -1,5 +1,6 @@
 <template>
 	{{ count.toFixed(2) }} - {{ store.fullName }}
+	<p>name: {{ userName }}</p>
 	<p>
 		<el-button type="primary" @click="onChangeName()">改变Store里的名字</el-button>
 	</p>
@@ -13,11 +14,14 @@ export default {
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import { storeToRefs } from 'pinia'
 import { userStore } from '@/store/example'
 import { apiGetUserProductList } from '@/apis/user'
 
 const count = ref(1)
 const store = userStore()
+// const userName = store.userName
+const { userName } = storeToRefs(store)
 
 const onChangeName = (name?: any) => {
 	store.updateUserName(name ?? '李同学')
